@@ -21,7 +21,7 @@ Scanner scanner = new Scanner(System.in);
 
 		// String folderpath1 = "C:/Program Files/";
       //
-    String filename = "allsongsnames"; 
+    String filenameforall = "allsongsnames"; 
 		String folderpath2 = "/data/data/com.termux/files/home/storage/music/" ;
 
 		File folder = new File(folderpath2);
@@ -47,19 +47,24 @@ Scanner scanner = new Scanner(System.in);
     switch (key) {
       case 1:
  // D isplaying SongPlaylist Array
-         for ( String names : SongPlaylist ){
+
              for(int i=1 ; i<SongPlaylist.size(); i++){
-                System.out.println("i. "+ names);
+
+         for ( String name : SongPlaylist ){
+                System.out.println(i+ " " + name);
      
              }
          }
          break;
 
      case 2:
-          try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename)))){
-              for (int i=0; i<SongPlaylist.size(); i++){
-                for(String names : SongPlaylist){
-                  writer.write(names);
+          try (BufferedWriter writer = new BufferedWriter(new FileWriter(filenameforall))){
+              System.out.println("Data is going to enter in Allsongsfile txt ");
+          for (int i=0; i<SongPlaylist.size(); i++){
+                for(String name : SongPlaylist){
+
+                  writer.write(name);
+                  writer.newLine();
                 }
               }
           } catch(IOException e) {
