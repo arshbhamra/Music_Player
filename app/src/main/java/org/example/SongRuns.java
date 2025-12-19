@@ -36,10 +36,10 @@ public class SongRuns {
       // UserInput();
 
       // String filepath = "audio.wav";
-      // File file = new File("./mm.wav");
-      // InputStream file = SongRuns.class.getResourceAsStream("res\\Chorus.wav");
+      // File file = new File("~/New/app/src/main/java/org/example/w.wav");
+      InputStream file = SongRuns.class.getResourceAsStream("resources\\audio.wav");
 
-      InputStream file = SongRuns.class.getResourceAsStream("resources//audio.wav");
+      // InputStream file = SongRuns.class.getResourceAsStream("resources//audio.wav");
 
 
       AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
@@ -49,7 +49,7 @@ public class SongRuns {
       clip.start();
 
       System.out.println("song is playing. (5sec)");
-      Thread.sleep(50);
+      Thread.sleep(500);
       clip.stop();
 
     }catch(NullPointerException e){
