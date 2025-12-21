@@ -1,39 +1,73 @@
-import org.example.DirReader.*;
+// import org.example.DirReader.*;
+package org.example; 
+
+import java.util.ArrayList;
+
+public class Playlist extends DirReader{
+
+    int currentsongIndex = 0;
 
 
-public class Playlist 
-{//extends DirReader{
-
+// ArrayList<String> sm = playlistOBJ.funcGetAllFiles();
 
   public static void main(String[] asd) {
+
     
-  int currentsongIndex = 0;
 
     Playlist playlistOBJ = new Playlist();
-//
-   // String Song = playlistOBJ.SongPlaylist.get(0);
-    playlistOBJ.funcSetData();
+ //    ArrayList<String> allSongsList = playlistOBJ.getSongPlaylist(); 
+ //    int i = 1;
+ // for(String names : allSongsList){
+ //      System.out.println(i + names);
+ //      i++;
+ //    }
 
-
-
-    System.out.println(" Playlist Program is Running /n/n");
+    playlistOBJ.load();
   }
 
 
-  // public void prevSong(Song song){
-  //   System.out.println("Song Previous");
-  //
-  // }
-  //
-  //
-  // public void nextSong(Song song){
-  //   System.out.println("Song Next");
-  //
-  // }
-  
-  
-  
-  
-  
+  public void load() {
 
+    ArrayList<String> allSongsList = playlistOBJ.getSongPlaylist(); 
+    
+    int i = 0;
+    for(String names : allSongsList){
+      System.out.println(i + names);
+      i++;
+    }
+System.out.println();
+    System.out.println("song at 0 is: "+allSongsList.get(0));
+    System.out.println();
+    System.out.println("Playlist Program is Running");
+
+    
+  }
+
+
+
+  public String prevSong(){
+    System.out.println("Previous Song ");
+
+  if(currentsongIndex <= 0){
+
+        System.out.println("We cannot go back to previous Song");
+    }else{
+
+    String returnValue = allSongsList.get(currentsongIndex);
+    return returnValue;
+  }
+    return "Else statemnt returned ";
+  }
+
+
+
+
+  public String nextSong(Song song){
+    System.out.println("Next Song");
+
+    currentsongIndex++ ;
+     String returnValue = allSongsList.get(currentsongIndex) ;
+    return returnValue;
+  }
+  
 }

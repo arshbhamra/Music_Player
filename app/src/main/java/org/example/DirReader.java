@@ -13,17 +13,17 @@ public class DirReader{
   Scanner scanner = new Scanner(System.in);	
   ArrayList<String> SongPlaylist = new ArrayList<>();
 
-  public String funcGetFilename(int fileIndex){
+  public String getSongName(int fileIndex){
      return SongPlaylist.get(fileIndex);
   }
 
-  public Arraylist funcGetAllFiles(){
+  public ArrayList<String> getSongPlaylist(){
     return SongPlaylist;
   }
 
 
 
-  public static void funcSetData(){
+    DirReader(){
 
 		String storageMusic = "/data/data/com.termux/files/home/storage/music/" ;
       String musicFolder = "/data/data/com.termux/files/home/Music/wav-files/wavs/";
@@ -46,8 +46,18 @@ public class DirReader{
     System.out.println("song 1 is: "+SongPlaylist.get(1));
     System.out.println(); 
   }
-//
-//
+
+  public static void main(String argg[]) {
+
+    System.out.println("This is  a simple main function");
+    System.out.println();
+    System.out.println();
+    System.out.println("This is  a simple main function");
+  }
+
+}
+
+  //
 //
 //
 //
@@ -133,6 +143,4 @@ public class DirReader{
     //       e.printStackTrace();
     //   }
     // }  // Main Function
-
-}  // Class 
 
