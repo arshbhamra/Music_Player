@@ -32,28 +32,36 @@ public class DirReader{
 
 		File[] files = folder.listFiles();
 
-		 for( File f : files){
+		for( File f : files){
 			String filename= f.getName();
 			SongPlaylist.add(filename);
     }    
        
-
-    System.out.println();
-    System.out.println("*********************");
-    System.out.println();
-    System.out.println("Data has been added from dir "+musicFolder);
-    System.out.println("song 0 is: "+SongPlaylist.get(0));
-    System.out.println("song 1 is: "+SongPlaylist.get(1));
+    // System.out.println();
+    // System.out.println("*********************");
+    // System.out.println();
+    // System.out.println("Data is added from dir "+musicFolder);
+    // System.out.println("song 0 is: "+SongPlaylist.get(0));
+    // System.out.println("song 1 is: "+SongPlaylist.get(1));
     System.out.println(); 
   }
 
-  public static void main(String argg[]) {
-
-    System.out.println("This is  a simple main function");
+  public void showAll(){
+    System.out.println("Showing All Songs/n available.");
+    int i=1;
+    for (String nnm : SongPlaylist) {
+      System.out.println(i + " " +nnm);
+      i++ ;
+    }
     System.out.println();
-    System.out.println();
-    System.out.println("This is  a simple main function");
   }
+  //
+  // public static void main(String argg[]) {
+  //   System.out.println("This is  a simple main function");
+  //   System.out.println();
+  //   System.out.println();
+  //   System.out.println("This is  a simple main function");
+  // }
 
 }
 
