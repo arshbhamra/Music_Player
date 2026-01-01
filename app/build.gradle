@@ -50,11 +50,12 @@ application {
     // mainClass = 'org.example.App'
     // mainClass = 'org.example.Song'
     // mainClass = 'org.example.SongRuns'
-    // mainClass = 'org.example.Playlist'
+    mainClass = 'org.example.Playlist'
     // mainClass = 'org.example.DirReader'
+    // mainClass = 'org.example.Dir'
 
 
-     mainClass = 'org.example.Testing'
+     // mainClass = 'org.example.Testing'
 
 
 

@@ -1,17 +1,18 @@
+package org.example;
 
+// import org.example.Song;
+
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.BufferedWriter;
-import java.util.Scanner;
-import java.util.ArrayList;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
+public class Dir {
 
-public class Dir{
-
-
-  Scanner scanner = new Scanner(System.in);	
-  ArrayList<Song> SongsStored = new ArrayList<>();
+  Scanner scanner = new Scanner(System.in);
+  private ArrayList<Song> SongsStored = new ArrayList<>();
 
   // public String getSongName(int fileIndex){
   //    return SongPlaylist.get(fileIndex);
@@ -21,45 +22,34 @@ public class Dir{
   //   return SongPlaylist;
   // }
   //
+  //
+  Dir() { loading(); }
 
+  public void loading() {
 
-    public void loading(){
+    String musicFolder = "/data/data/com.termux/files/home/Music/wav-files/";
 
+    File folder = new File(musicFolder);
+    File[] files = folder.listFiles();
 
-		String storageMusic = "/data/data/com.termux/files/home/storage/music/" ;
-      String musicFolder = "/data/data/com.termux/files/home/Music/wav-files/wavs/";
-
-		File folder = new File(musicFolder);
-		File[] files = folder.listFiles();
-
-		for( File f : files){
-      
+    for (File f : files) {
       String filename = f.getName();
       Song songOBJ = new Song(f, filename);
       // if(f.getName().endsWith(".wav" )){
-        SongsStored.add(songOBJ);
-      // }
-    }    
-       
-    System.out.println();
-    System.out.println("*********************");
-    System.out.println();
-    System.out.println("Data is added from dir "+musicFolder);
-    // System.out.println("song 0 is: "+SongsStored.get(0));
-    // System.out.println("song 1 is: "+SongsStored.get(1));
-    System.out.println(); 
-    System.out.println("*********************");
+      SongsStored.add(songOBJ);
+    }
+    System.out.println("Data loading complete ");
+
     // for (Song var : SongsStored) {
     //   System.out.println(var);
     //
     // }
   }
 
-  public ArrayList<Song> getSongPlaylist(){
-    return SongsStored;
-  }
+  public ArrayList<Song> getSongList() { return SongsStored; }
 
-  public static void main(String argg[]) {
+  public static void main(String args[]) {
+
     System.out.println("This is  a simple main function");
     System.out.println();
     System.out.println();
@@ -68,16 +58,16 @@ public class Dir{
     Dir dir = new Dir();
     dir.loading();
   }
-
 }
 
-  //
 //
 //
 //
-//   public static void funcSwitch(Scanner scanner, ArrayList<String> SongPlaylist){
 //
-//     String filenameforall = "allsongsnames.txt"; 
+//   public static void funcSwitch(Scanner scanner, ArrayList<String>
+//   SongPlaylist){
+//
+//     String filenameforall = "allsongsnames.txt";
 //
 //    System.out.println("1 is GTerminal show file");
 //    System.out.println("2 is show file in txt file");
@@ -86,17 +76,16 @@ public class Dir{
 //
 //
 //    int key = scanner.nextInt();
-//    int i = 1; 
-//       System.out.println();
+//    int i = 1;
+//  System.out.println();
 //       System.out.println();
 //
 //     switch (key) {
 //       case 1:
 //
 //       if(SongPlaylist.isEmpty()){
-//         System.out.println("SongPlaylist list was emppty, so some DummyData has been added. ");
-//         SongPlaylist.add("A");
-//         SongPlaylist.add("B");
+//         System.out.println("SongPlaylist list was emppty, so some DummyData
+//         has been added. "); SongPlaylist.add("A"); SongPlaylist.add("B");
 //         SongPlaylist.add("C");
 //         SongPlaylist.add("D");
 //       }
@@ -115,17 +104,18 @@ public class Dir{
 //
 //
 //      case 2:
-//           try (BufferedWriter writer = new BufferedWriter(new FileWriter(filenameforall))){
+//           try (BufferedWriter writer = new BufferedWriter(new
+//           FileWriter(filenameforall))){
 //
 //       if(SongPlaylist.isEmpty()){
-//         System.out.println("SongPlaylist list was emppty, so some DummyData has been added. ");
-//         SongPlaylist.add("A");
-//         SongPlaylist.add("B");
+//         System.out.println("SongPlaylist list was emppty, so some DummyData
+//         has been added. "); SongPlaylist.add("A"); SongPlaylist.add("B");
 //         SongPlaylist.add("C");
 //         SongPlaylist.add("D");
 //       }
 //       else{
-//               System.out.println("Data is going to enter in Allsongsfile txt ");
+//               System.out.println("Data is going to enter in Allsongsfile txt
+//               ");
 //           // for (int i=1; i<SongPlaylist.size(); i++){
 //                 for(String name : SongPlaylist){
 //
@@ -135,7 +125,7 @@ public class Dir{
 //                 }
 //               }
 //           } catch(IOException e) {
-//              e.printStackTrace();    
+//              e.printStackTrace();
 //             }
 //
 //
@@ -145,16 +135,15 @@ public class Dir{
 //     }
 //
 //   }
-    //
-    // public static void main(String[] args) {
-    //   try {
-    //   int fileIndex = 0;
-    //
-    //     // funcSetData(SongPlaylist);
-    //     // funcSwitch(scanner, SongPlaylist);
-    //
-    //   } catch (Exception e) {
-    //       e.printStackTrace();
-    //   }
-    // }  // Main Function
-
+//
+// public static void main(String[] args) {
+//   try {
+//   int fileIndex = 0;
+//
+//     // funcSetData(SongPlaylist);
+//     // funcSwitch(scanner, SongPlaylist);
+//
+//   } catch (Exception e) {
+//       e.printStackTrace();
+//   }
+// }  // Main Function

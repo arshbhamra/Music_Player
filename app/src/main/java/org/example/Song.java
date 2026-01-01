@@ -1,3 +1,5 @@
+package org.example;
+
 import java.io.File;  
 // import TestingDir.Song.*;
 // passing a song info to Song class
@@ -7,9 +9,9 @@ import java.io.File;
 public class Song {
 
     // private String artistName;
-    private String songName;
+    String songName;
     // private String songLength;
-    private File songFile;
+    File songFile;
   
     // private String songExtension;
 

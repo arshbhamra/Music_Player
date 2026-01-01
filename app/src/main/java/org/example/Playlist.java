@@ -1,88 +1,66 @@
-// import org.example.DirReader.*;
-package org.example; 
+package org.example;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Playlist {
 
-    int currentsongIndex = 0;
-    DirReader direaderOBJ;
+  int currentsongIndex = 0;
+  Dir direaderOBJ;
 
-    Playlist(DirReader dir){
-    this.direaderOBJ = dir;
-
-                            
-
-
-
-
-
-  }
-
-// ArrayList<String> sm = playlistOBJ.funcGetAllFiles();
+  Playlist(Dir dir) { this.direaderOBJ = dir; }
+  ArrayList<Song> SongsinPlaylist;
 
   public static void main(String[] asd) {
-    
-    
-    DirReader dir = new DirReader();
+
+    Dir dir = new Dir();
     Playlist playlistOBJ = new Playlist(dir);
- //    ArrayList<String> allSongsList = playlistOBJ.getSongPlaylist(); 
- //    int i = 1;
-    playlistOBJ.Controller();
-    // direaderOBJ.showAll(); 
- // for(String names : allSongsList){
- //      System.out.println(i + names);
- //      i++;
- //    }
+   playlistOBJ.Controller();
   }
 
 
-
-
-
-
-void createPlaylist(){
+  void showSongs() {
+    int i = 1;
+    System.out.println("All current songs are showing: ");
     System.out.println();
+
+    SongsinPlaylist = new ArrayList<Song>();
+    SongsinPlaylist = direaderOBJ.getSongList();
+
+    for (Song var : SongsinPlaylist) {
+      System.out.println(i + " " + var);
+    }
   }
 
 
-
-
-
-
-
-
-
-
-  void Controller(){
-    try{
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("1showAll 2Start 3prevSong 4nextSong");
-    // int key = scanner.nextInt();
+  void Controller() {
+    try {
+      // Scanner scanner = new Scanner(System.in);
+      System.out.println("\n\n1showAll \n 2Start\n 3prevSong \n4nextSong\n");
+      // int key = scanner.nextInt();
       int key = 1;
 
-switch (key) {
+      switch (key) {
       case 1:
-         direaderOBJ.showAll();
-         break;
+        showSongs();
+        break;
       case 2:
-         // Start();
-         break;
+        // Start();
+        break;
       case 3:
-         // prevSong();
-         break;
+        // prevSong();
+        break;
       case 4:
-         // nextSong();
-         break; 
+        // nextSong();
+        break;
       default:
-         System.out.println("***************Default");
-         break;
+        System.out.println("***************Default");
+        break;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
     }
-  }catch(Exception e){
-    e.printStackTrace();
   }
-  }
-
 
   //
   // public String prevSong(){
@@ -97,8 +75,6 @@ switch (key) {
   //     return "Else statemnt returned ";
   // }
 
-
-
   //
   // public String nextSong(Song song){
   //   System.out.println("Next Song");
@@ -107,5 +83,4 @@ switch (key) {
   //    String returnValue = direaderOBJ.SongPlaylist.get(currentsongIndex) ;
   //   return returnValue;
   // }
-  
 }
